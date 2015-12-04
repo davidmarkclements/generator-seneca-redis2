@@ -41,9 +41,10 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_package.json'),
         this.destinationPath('package.json')
       );
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('_service.js'),
-        this.destinationPath('service.js')
+        this.destinationPath('service.js'),
+        {name: this.projectName}
       );
       this.fs.copy(
         this.templatePath('_README.md'),
